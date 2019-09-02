@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <h1>
+            List of All Tasks
+        </h1>
+        <br><a href="/">Home</a>
+        <br><a href="newTask">Add a Task</a>
+        <table style="width:100%">
+                <tr>
+                    <th>Task Name</th>
+                    <th>Assigned To</th>
+                    <th>Task Date</th>
+                    <th>Task Status</th>
+                    <th>Task Description</th>
+                </tr>
+                <% for (let i = 0; i < data.length;i++){ %>
+                    <tr>
+                        <td>
+                            <%= data[i].taskName %>
+                        </td>
+                        <td>
+                            <%= data[i].assignName %>
+                        </td>
+                        <td>
+                            <%= data[i].taskDate %>
+                        </td>
+                        <td>
+                            <%= data[i].taskStatus %>
+                        </td>
+                        <td>
+                            <%= data[i].taskDesc %>
+                        </td>
+                    </tr>
+                    <% }%>
+        </table>
+    </body>
+</html>

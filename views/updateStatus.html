@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>
+            Update a Task
+        </h1>
+        <br><a href="/">Home</a>
+        <br><a href="listAll">List all Tasks</a>
+        <form action="/updateStatus" method="POST">
+            <h2>
+                <%= data %>
+            </h2>
+            ID of Task Change Status of<input type="text" name="taskID"/><br>
+            New Status<input type="text" name="status"/><br>
+            <button>Submit</button>
+        </form>
+    </body>
+</html>

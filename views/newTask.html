@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>
+            Add New Task
+        </h1>
+        <br><a href="/">Home</a>
+        <br><a href="listAll">List all Tasks</a>
+        <form action="/newTask" method="POST">
+            Task Name<input type="text" name="taskName"/><br>
+            Assigned to<input type="text" name="assignName"/><br>
+            Task Date<input type="date" name="taskDate"/><br>
+            Task Description<input type="text" name="taskDesc"/><br>
+            <button>Submit</button>
+        </form>
+    </body>
+</html>

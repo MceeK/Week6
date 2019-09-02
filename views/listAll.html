@@ -10,6 +10,7 @@
         <br><a href="newTask">Add a Task</a>
         <table style="width:100%">
                 <tr>
+                    <th>ID</th>
                     <th>Task Name</th>
                     <th>Assigned To</th>
                     <th>Task Date</th>
@@ -18,6 +19,9 @@
                 </tr>
                 <% for (let i = 0; i < data.length;i++){ %>
                     <tr>
+                        <td>
+                            <%= data[i]._id %>
+                        </td>
                         <td>
                             <%= data[i].taskName %>
                         </td>

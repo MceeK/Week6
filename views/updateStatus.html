@@ -13,7 +13,11 @@
                 <%= data %>
             </h2>
             ID of Task Change Status of<input type="text" name="taskID"/><br>
-            New Status<input type="text" name="status"/><br>
+            New Status
+            <select name="status">
+                <option value="complete">Complete</option>
+                <option value="inprogress">InProgress</option>
+            </select><br>
             <button>Submit</button>
         </form>
     </body>

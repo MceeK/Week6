@@ -49,12 +49,14 @@ app.get('/newTask', function(req,res){
 });
 
 app.post('/newTask', function(req,res){
+    let id = Math.round(Math.random()*1000);
     let taskName = req.body.taskName;
     let assignName = req.body.assignName;
     let taskDate = req.body.taskDate;
     let taskDesc = req.body.taskDesc;
     let date = new Date(taskDate)
     let rec = {
+        id: id,
         taskName: taskName,
         assignName: assignName,
         taskDate: date,
@@ -80,8 +82,8 @@ app.get('/deleteTask', function(req,res){
 });
 
 app.post('/deleteTask', function(req,res){
-    let deleteID = req.body.taskID;
-    query = {_id: ObjectId(deleteID)};
+    let deleteID = parseInt(req.body.taskID);
+    query = {id: deleteID};
     col.deleteMany(query, function(err, data){
         col.find({}).toArray(function (err, data) {
             res.render('listAll.html', { data: data });
@@ -118,9 +120,9 @@ app.get('/updateStatus', function(req,res){
 });
 
 app.post('/updateStatus', function(req, res){
-    let taskID = req.body.taskID;
+    let taskID = parseInt(req.body.taskID);
     let status = req.body.status.toLocaleLowerCase();
-    query = {_id: ObjectId(taskID)};
+    query = {id: taskID};
     if (status == 'complete') {
         col.updateOne(query, {$set: {taskStatus: 'Complete'}}, function(err, data){
             col.find({}).toArray(function (err, data) {

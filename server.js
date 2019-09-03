@@ -98,6 +98,21 @@ app.get('/deleteComplete', function(req,res){
     });
 });
 
+app.get('/deleteDate', function(req,res) {
+    res.sendFile(__dirname + '/views/deleteDate.html')
+});
+
+app.post('/deleteDate', function(req,res) {
+    let deleteDate = new Date(req.body.deleteDate);
+    //console.log(deleteDate);
+    query = {taskDate: {$lt: deleteDate}};
+    col.deleteMany(query, function (err, data) {
+        col.find({}).toArray(function (err, data) {
+            res.render('listAll.html', { data: data });
+        });
+    });
+});
+
 app.get('/updateStatus', function(req,res){
     res.render('updateStatus.html', {data: ""})
 });
